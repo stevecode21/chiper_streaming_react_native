@@ -1,17 +1,24 @@
 import 'react-native-gesture-handler';
-import React from 'react';
+import React, {useReducer} from 'react';
 import {View, Text} from 'react-native';
 
 import {NavigationContainer} from '@react-navigation/native';
-import {Navigation} from './navigation/Navigation';
+import {LoggedStack} from './src/navigation/StacksScreens/LoggedStack';
+import {UnloggedStack} from './src/navigation/StacksScreens/UnloggedStack';
+import {GlobalContext} from './src/context/store/GlobalContext';
+import userReducer from './src/context/reducers/user.reducer';
 
 const App = () => {
+  const [stateUser, dispatch] = useReducer(userReducer, {
+    isAuthenticated: false,
+    user: {},
+  });
   return (
-    <>
+    <GlobalContext.Provider value={{stateUser, dispatch}}>
       <NavigationContainer>
-        <Navigation />
+        {!stateUser.isAuthenticated ? <UnloggedStack /> : <LoggedStack />}
       </NavigationContainer>
-    </>
+    </GlobalContext.Provider>
   );
 };
 

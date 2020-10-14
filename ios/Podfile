@@ -8,6 +8,8 @@ target 'streamings' do
 
   use_react_native!(:path => config["reactNativePath"])
 
+  pod 'opentok-react-native', :path => '../node_modules/opentok-react-native'
+
   target 'streamingsTests' do
     inherit! :complete
     # Pods for testing
