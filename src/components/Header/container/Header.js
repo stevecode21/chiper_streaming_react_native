@@ -16,7 +16,7 @@ export default function Header(props) {
   console.log(props.onPress.navigate);
   return (
     <View>
-      <StatusBar hidden={true} />
+      {/* <StatusBar hidden={true} /> */}
       <View
         style={{backgroundColor: 'white', flexDirection: 'row', height: 60}}>
         <View style={styles.containerOne}>

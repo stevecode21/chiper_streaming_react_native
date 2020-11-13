@@ -10,7 +10,7 @@ import userReducer from './src/context/reducers/user.reducer';
 
 const App = () => {
   const [stateUser, dispatch] = useReducer(userReducer, {
-    isAuthenticated: false,
+    isAuthenticated: true,
     user: {},
   });
   return (
